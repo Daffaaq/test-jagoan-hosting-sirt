@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('penghunis', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->string('foto_ktp');
+            $table->string('foto_ktp')->nullable();
             $table->enum('status_penghuni', ['kontrak', 'tetap']);
             $table->string('nomor_telepon');
             $table->enum('status_menikah', ['menikah', 'belum menikah']);

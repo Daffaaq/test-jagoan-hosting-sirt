@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\PenghuniController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
@@ -34,6 +35,9 @@ Route::group(['middleware' => ['auth']], function () {
         // rumah
         Route::resource('rumah', RumahController::class);
         Route::post('/rumah/list', [RumahController::class, 'list'])->name('rumah.list');
+
+        Route::resource('penghuni', PenghuniController::class);
+        Route::post('/penghuni/list', [PenghuniController::class, 'list'])->name('penghuni.list');
     });
 
     Route::prefix('user-management')->group(function () {

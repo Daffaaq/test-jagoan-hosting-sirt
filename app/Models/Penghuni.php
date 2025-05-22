@@ -9,7 +9,7 @@ class Penghuni extends Model
 {
     use HasFactory;
 
-    protected $table = 'penghuni';
+    protected $table = 'penghunis';
 
     protected $fillable = ['nama_lengkap', 'foto_ktp', 'status_penghuni', 'nomor_telepon', 'status_menikah'];
 
