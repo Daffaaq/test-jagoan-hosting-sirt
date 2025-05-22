@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthApiController;
 use App\Http\Controllers\API\IuranApiController;
+use App\Http\Controllers\API\PenghuniApiController;
 use App\Http\Controllers\API\RumahApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,14 @@ Route::group(
             'show' => 'api.iuran.show',
             'update' => 'api.iuran.update',
             'destroy' => 'api.iuran.destroy',
+        ]);
+
+        Route::apiResource('penghuni', PenghuniApiController::class)->names([
+            'index' => 'api.penghuni.index',
+            'store' => 'api.penghuni.store',
+            'show' => 'api.penghuni.show',
+            'update' => 'api.penghuni.update',
+            'destroy' => 'api.penghuni.destroy',
         ]);
     }
 );
