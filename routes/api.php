@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthApiController;
+use App\Http\Controllers\API\IuranApiController;
 use App\Http\Controllers\API\RumahApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,14 @@ Route::group(
             'show' => 'api.rumah.show',
             'update' => 'api.rumah.update',
             'destroy' => 'api.rumah.destroy',
+        ]);
+
+        Route::apiResource('iuran', IuranApiController::class)->names([
+            'index' => 'api.iuran.index',
+            'store' => 'api.iuran.store',
+            'show' => 'api.iuran.show',
+            'update' => 'api.iuran.update',
+            'destroy' => 'api.iuran.destroy',
         ]);
     }
 );
