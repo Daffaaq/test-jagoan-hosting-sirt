@@ -92,10 +92,10 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'iuran.destroy']);
 
         //pembayaran
-        Permission::create(['name' => 'pembayaran.index']);
-        Permission::create(['name' => 'pembayaran.create']);
-        Permission::create(['name' => 'pembayaran.edit']);
-        Permission::create(['name' => 'pembayaran.destroy']);
+        Permission::create(['name' => 'pembayaran-iuran.index']);
+        Permission::create(['name' => 'pembayaran-iuran.create']);
+        Permission::create(['name' => 'pembayaran-iuran.edit']);
+        Permission::create(['name' => 'pembayaran-iuran.destroy']);
 
         //pengeluaran
         Permission::create(['name' => 'pengeluaran.index']);

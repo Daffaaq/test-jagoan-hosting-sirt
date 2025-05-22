@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             RoleAndPermissionSeeder::class,
             MenuGroupSeeder::class,
             MenuItemSeeder::class,
+            RumahSeeder::class,
+            PenghuniSeeder::class
         ]);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\IuranController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PenghuniController;
+use App\Http\Controllers\PenghuniRumahController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
 use App\Http\Controllers\RoleAndPermission\AssignUserToRoleController;
 use App\Http\Controllers\RoleAndPermission\PermissionController;
@@ -36,6 +37,12 @@ Route::group(['middleware' => ['auth']], function () {
         // rumah
         Route::resource('rumah', RumahController::class);
         Route::post('/rumah/list', [RumahController::class, 'list'])->name('rumah.list');
+        Route::get('/rumah/{rumah}/penghuni-rumah', [PenghuniRumahController::class, 'createPenghuni'])->name('rumah.penghuni');
+        Route::post('/rumah/{rumah}/penghuni-rumah', [PenghuniRumahController::class, 'storePenghuni'])->name('rumah.store.penghuni');
+        Route::get('/rumah/{penghuniRumah}/penghuni-rumah/edit', [PenghuniRumahController::class, 'editPenghuni'])->name('rumah.penghuni.edit');
+        Route::put('/rumah/{penghuniRumah}/penghuni-rumah', [PenghuniRumahController::class, 'updatePenghuni'])->name('rumah.penghuni.update');
+        Route::delete('/rumah/{penghuniRumah}/penghuni-rumah', [PenghuniRumahController::class, 'destroyPenghuni'])->name('rumah.penghuni.destroy');
+        Route::post('/rumah/{rumah}/penghuni/list', [PenghuniRumahController::class, 'listPenghuniRumah'])->name('rumah.penghuni.list');
 
         Route::resource('penghuni', PenghuniController::class);
         Route::post('/penghuni/list', [PenghuniController::class, 'list'])->name('penghuni.list');
@@ -44,6 +51,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('iuran', IuranController::class);
         Route::post('/iuran/list', [IuranController::class, 'list'])->name('iuran.list');
     });
+
+    Route::prefix('transaksi-management')->group(function () {});
 
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);

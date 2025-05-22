@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rumahs', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_rumah');
-            $table->enum('status_huni', ['dihuni', 'tidak dihuni']);
+            $table->enum('status_huni', ['dihuni', 'tidak dihuni'])->default('tidak dihuni');
             $table->timestamps();
         });
     }
