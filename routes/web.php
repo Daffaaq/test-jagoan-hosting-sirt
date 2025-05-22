@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IuranController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PenghuniController;
@@ -38,6 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::resource('penghuni', PenghuniController::class);
         Route::post('/penghuni/list', [PenghuniController::class, 'list'])->name('penghuni.list');
+
+        //iuran
+        Route::resource('iuran', IuranController::class);
+        Route::post('/iuran/list', [IuranController::class, 'list'])->name('iuran.list');
     });
 
     Route::prefix('user-management')->group(function () {

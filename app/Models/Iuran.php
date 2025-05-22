@@ -9,9 +9,9 @@ class Iuran extends Model
 {
     use HasFactory;
 
-    protected $table = 'iuran';
+    protected $table = 'iurans';
 
-    protected $fillable = ['jenis', 'jumlah', 'periode'];
+    protected $fillable = ['jenis', 'jumlah', 'periode', 'status'];
 
     public function pembayaranIuran()
     {

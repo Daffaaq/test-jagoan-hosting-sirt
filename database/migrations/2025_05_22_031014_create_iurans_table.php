@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('jenis', ['satpam', 'kebersihan']);
             $table->decimal('jumlah', 10, 2);
             $table->enum('periode', ['bulanan', 'tahunan']);
+            $table->enum('status', ['aktif', 'non-aktif']);
             $table->timestamps();
         });
     }
