@@ -64,6 +64,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Penghuni</th>
+                                <th>Status Penghuni</th>
                                 <th>Tanggal Mulai</th>
                                 <th>Tanggal Selesai</th>
                                 <th>Action</th>
@@ -130,6 +131,10 @@
                     {
                         data: 'penghuni.nama_lengkap',
                         name: 'penghuni.nama_lengkap'
+                    },
+                    {
+                        data: 'penghuni.status_penghuni',
+                        name: 'penghuni.status_penghuni'
                     },
                     {
                         data: 'tanggal_mulai',

@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
             MenuGroupSeeder::class,
             MenuItemSeeder::class,
             RumahSeeder::class,
-            PenghuniSeeder::class
+            PenghuniSeeder::class,
+            IuranSeeder::class,
+            PenghuniRumahSeeder::class
         ]);
     }
 }

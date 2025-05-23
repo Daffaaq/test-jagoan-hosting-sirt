@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
+use App\Http\Controllers\PembayaranIuranController;
 use App\Http\Controllers\PenghuniController;
 use App\Http\Controllers\PenghuniRumahController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
@@ -52,7 +53,19 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/iuran/list', [IuranController::class, 'list'])->name('iuran.list');
     });
 
-    Route::prefix('transaksi-management')->group(function () {});
+    Route::prefix('transaksi-management')->group(function () {
+        // pembayaran iuran
+        Route::get('pembayaran-iuran', [PembayaranIuranController::class, 'index'])->name('pembayaran-iuran.index');
+        Route::post('pembayaran-iuran/list', [PembayaranIuranController::class, 'list'])->name('pembayaran-iuran.list');
+        Route::get('pembayaran-iuran/generate-tagihan', [PembayaranIuranController::class, 'formGenerateTagihan'])->name('generate-tagihan.form');
+        Route::post('pembayaran-iuran/generate-tagihan', [PembayaranIuranController::class, 'generateTagihanManual'])->name('generate-tagihan');
+        Route::get('/pembayaran-iuran/form-generate-tagihan-penghuni', [PembayaranIuranController::class, 'formGenerateTagihanPenghuni'])->name('pembayaran-iuran.form-generate-tagihan-penghuni');
+        Route::post('/pembayaran-iuran/generate-tagihan-penghuni', [PembayaranIuranController::class, 'generateTagihanPenghuni'])->name('pembayaran-iuran.generate-tagihan-penghuni');
+        Route::get('/pembayaran-iuran/{id}/edit', [PembayaranIuranController::class, 'edit'])->name('pembayaran-iuran.edit');
+        Route::put('/pembayaran-iuran/{id}', [PembayaranIuranController::class, 'update'])->name('pembayaran-iuran.update');
+        Route::patch('/pembayaran-iuran/{id}/lunas', [PembayaranIuranController::class, 'updatePembayaran'])->name('pembayaran-iuran.lunas');
+        Route::delete('/pembayaran-iuran/{id}', [PembayaranIuranController::class, 'destroy'])->name('pembayaran-iuran.destroy');
+    });
 
     Route::prefix('user-management')->group(function () {
         Route::resource('user', UserController::class);

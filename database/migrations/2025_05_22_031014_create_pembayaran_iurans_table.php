@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('pembayaran_iurans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('penghuni_id');
-            $table->foreign('penghuni_id')->references('id')->on('penghunis')->onDelete('cascade');
-            $table->unsignedBigInteger('rumah_id');
-            $table->foreign('rumah_id')->references('id')->on('rumahs')->onDelete('cascade');
+            $table->unsignedBigInteger('penghuni_rumah_id');
+            $table->foreign('penghuni_rumah_id')->references('id')->on('penghuni_rumahs')->onDelete('cascade');
             $table->unsignedBigInteger('iuran_id');
             $table->foreign('iuran_id')->references('id')->on('iurans')->onDelete('cascade');
             $table->integer('bulan'); // 1-12
             $table->integer('tahun');
-            $table->decimal('jumlah', 10, 2);
-            $table->enum('status', ['lunas', 'belum lunas']);
+            $table->decimal('jumlah', 10, 2)->nullable();
+            $table->enum('status', ['lunas', 'belum lunas'])->default('belum lunas');
             $table->date('tanggal_bayar')->nullable();
             $table->timestamps();
         });

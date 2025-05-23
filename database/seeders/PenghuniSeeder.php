@@ -13,11 +13,23 @@ class PenghuniSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 10; $i++) {
+        // 15 Penghuni Tetap
+        for ($i = 0; $i < 15; $i++) {
             Penghuni::create([
                 'nama_lengkap' => fake()->name(),
                 'foto_ktp' => null,
-                'status_penghuni' => fake()->randomElement(['kontrak', 'tetap']),
+                'status_penghuni' => 'tetap',
+                'nomor_telepon' => fake()->phoneNumber(),
+                'status_menikah' => fake()->randomElement(['menikah', 'belum menikah']),
+            ]);
+        }
+
+        // 5 Penghuni Kontrak
+        for ($i = 0; $i < 5; $i++) {
+            Penghuni::create([
+                'nama_lengkap' => fake()->name(),
+                'foto_ktp' => null,
+                'status_penghuni' => 'kontrak',
                 'nomor_telepon' => fake()->phoneNumber(),
                 'status_menikah' => fake()->randomElement(['menikah', 'belum menikah']),
             ]);

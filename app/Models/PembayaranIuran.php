@@ -9,11 +9,10 @@ class PembayaranIuran extends Model
 {
     use HasFactory;
 
-    protected $table = 'pembayaran_iuran';
+    protected $table = 'pembayaran_iurans';
 
     protected $fillable = [
-        'penghuni_id',
-        'rumah_id',
+        'penghuni_rumah_id',
         'iuran_id',
         'bulan',
         'tahun',
@@ -22,14 +21,9 @@ class PembayaranIuran extends Model
         'tanggal_bayar',
     ];
 
-    public function penghuni()
+    public function penghuniRumah()
     {
-        return $this->belongsTo(Penghuni::class);
-    }
-
-    public function rumah()
-    {
-        return $this->belongsTo(Rumah::class);
+        return $this->belongsTo(PenghuniRumah::class);
     }
 
     public function iuran()

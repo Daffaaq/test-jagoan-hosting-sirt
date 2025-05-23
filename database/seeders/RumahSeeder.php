@@ -13,10 +13,9 @@ class RumahSeeder extends Seeder
      */
     public function run(): void
     {
-        $nomors = ['A1', 'A2', 'B1', 'B2', 'C1'];
-        foreach ($nomors as $nomor) {
+        for ($i = 1; $i <= 20; $i++) {
             Rumah::create([
-                'nomor_rumah' => $nomor,
+                'nomor_rumah' => 'A' . $i,
                 'status_huni' => 'tidak dihuni',
             ]);
         }
