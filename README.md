@@ -14,6 +14,10 @@
 
 ---
 
+## ERD
+
+[Klik di sini untuk melihat ERD](https://dbdiagram.io/d/6830aa30b9f7446da3e558af)
+
 ## Langkah Instalasi
 
 1. **Clone repository**  
