@@ -9,7 +9,7 @@ class Saldo extends Model
 {
     use HasFactory;
 
-    protected $table = 'saldo';
+    protected $table = 'saldos';
 
     protected $fillable = ['bulan', 'tahun', 'total_pemasukan', 'total_pengeluaran', 'saldo'];
 }

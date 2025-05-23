@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\Menu\MenuGroupController;
 use App\Http\Controllers\Menu\MenuItemController;
 use App\Http\Controllers\PembayaranIuranController;
+use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PenghuniController;
 use App\Http\Controllers\PenghuniRumahController;
 use App\Http\Controllers\RoleAndPermission\AssignPermissionController;
@@ -30,9 +32,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', function () {
-        return view('home');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/dashboard/create-saldo', [DashboardController::class, 'createOrUpdateSaldo'])->name('dashboard.create-saldo');
+    Route::get('/dashboard/financial-data', [DashboardController::class, 'getFinancialData']);
+    Route::get('/dashboard/filter-detail', [DashboardController::class, 'filterDetail'])->name('dashboard.filter-detail');
+
+
+
 
     Route::prefix('master-management')->group(function () {
         // rumah
@@ -65,6 +71,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/pembayaran-iuran/{id}', [PembayaranIuranController::class, 'update'])->name('pembayaran-iuran.update');
         Route::patch('/pembayaran-iuran/{id}/lunas', [PembayaranIuranController::class, 'updatePembayaran'])->name('pembayaran-iuran.lunas');
         Route::delete('/pembayaran-iuran/{id}', [PembayaranIuranController::class, 'destroy'])->name('pembayaran-iuran.destroy');
+
+        //pengeluaran
+        Route::resource('pengeluaran', PengeluaranController::class);
+        Route::post('/pengeluaran/list', [PengeluaranController::class, 'list'])->name('pengeluaran.list');
     });
 
     Route::prefix('user-management')->group(function () {

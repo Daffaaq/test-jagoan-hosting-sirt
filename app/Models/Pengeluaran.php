@@ -9,7 +9,7 @@ class Pengeluaran extends Model
 {
     use HasFactory;
 
-    protected $table = 'pengeluaran';
+    protected $table = 'pengeluarans';
 
     protected $fillable = ['kategori', 'jumlah', 'tanggal', 'keterangan'];
 }

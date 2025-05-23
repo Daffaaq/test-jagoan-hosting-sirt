@@ -56,20 +56,6 @@ class MenuItemSeeder extends Seeder
                 'menu_group_id' => 3,
             ],
 
-            // Laporan Management (menu_group_id: 4)
-            [
-                'name' => 'Laporan Bulanan',
-                'route' => 'laporan-management/laporan-bulanan',
-                'permission_name' => 'laporan-bulanan.index',
-                'menu_group_id' => 4,
-            ],
-            [
-                'name' => 'Rekap Saldo Tahunan',
-                'route' => 'laporan-management/rekap-saldo-tahunan',
-                'permission_name' => 'rekap-saldo-tahunan.index',
-                'menu_group_id' => 4,
-            ],
-
             // Users Management (menu_group_id: 5)
             [
                 'name' => 'User List',
