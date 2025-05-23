@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthApiController;
 use App\Http\Controllers\API\IuranApiController;
 use App\Http\Controllers\API\PenghuniApiController;
+use App\Http\Controllers\API\PenghuniRumahApiController;
 use App\Http\Controllers\API\RumahApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -51,5 +52,10 @@ Route::group(
             'update' => 'api.penghuni.update',
             'destroy' => 'api.penghuni.destroy',
         ]);
+
+        Route::get('rumah/{id}/penghuni-rumah', [PenghuniRumahApiController::class, 'index']);
+        Route::post('rumah/{id}/penghuni-rumah', [PenghuniRumahApiController::class, 'store']);
+        Route::put('rumah/{id}/penghuni-rumah/update', [PenghuniRumahApiController::class, 'update']);
+        Route::delete('rumah/{id}/penghuni-rumah/delete', [PenghuniRumahApiController::class, 'destroy']);
     }
 );
